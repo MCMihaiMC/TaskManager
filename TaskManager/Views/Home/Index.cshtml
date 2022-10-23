@@ -14,18 +14,13 @@
     <br />
     @foreach (var task in Model.ListTasks)
     {
-        <table>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="button" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) onclick="loadChildren('@task.Id');" />
-                </td>
-
-            </tr>
-            <tr id="task_@task.Id">
-
-            </tr>
-        </table>
+        <div>
+            <div>
+                <input type="button" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) onclick="loadChildren('@task.Id');" />
+            </div>
+            <div id="task_@task.Id" class="step">
+            </div>
+        </div>
 
         <br />
         <br />
@@ -41,14 +36,18 @@
 
         $.get(url, function (data) {
 
-            for (var i = 0; i < data.length; i++)
-            {
-                $("#task_" + e).append("<td><input type='button' id=" + data[i].id +  "value=" + data[i].label + " /></td>")
-            }
-            
+            $("#task_" + e).html(data)
 
         });
 
         return false;
     }
 </script>
+
+<style>
+
+    .step {
+        left: 15px;
+        position: relative;
+    }
+</style>

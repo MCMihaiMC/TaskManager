@@ -1,0 +1,13 @@
+﻿@using TaskManager.Business.BusinessEntities
+@model IEnumerable<Step> 
+
+    <div>
+    @{
+
+        foreach (var d in Model)
+        {
+                    <div><input type="button" value="@d.Label" id="step_@d.Id"  /></div>
+
+        }
+    }
+    </div>

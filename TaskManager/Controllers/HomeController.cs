@@ -30,8 +30,7 @@ namespace TaskManager.Controllers
         public IActionResult Index(string taskId)
         {
             int Id = 1;
-            //IEnumerable<Job> jobs = tasks.ListTasks;
-            viewModel.ListSteps = GetSteps(Id);
+            viewModel.ListSteps = _taskLoadHandler.GetSteps(Id);
             return View(viewModel);
         }
 
@@ -44,10 +43,10 @@ namespace TaskManager.Controllers
         }
 
         [HttpGet("getsteps/{taskId}")]
-        public IEnumerable<Step> GetSteps(int taskId)
+        public PartialViewResult GetSteps(int taskId)
         {
-            IEnumerable<Step> steps = _taskLoadHandler.GetSteps(taskId);
-            return steps;
+            var data = _taskLoadHandler.GetSteps(taskId);
+            return PartialView("_steps", data);
         }
 
         [HttpGet("getchildrensteps/{parentStepId}")]
