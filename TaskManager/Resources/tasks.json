@@ -1,0 +1,101 @@
+{
+  "tasks": [
+    {
+      "name": "task_1",
+      "id": "1",
+      "steps": [
+        {
+          "name": "Marcel",
+          "id": "11",
+          "step": "step_1_1",
+          "steps": [
+
+          ]
+        },
+        {
+          "name": "Joe",
+          "id": "12",
+          "step": "step_1_2",
+          "steps": [
+            {
+              "name": "anonymous",
+              "id": "121",
+              "step": "step_1_2_1",
+              "steps": [
+                {
+                  "name": "anonymous",
+                  "id": "1211",
+                  "step": "step_1_2_1_1",
+                  "steps": [
+
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "anonymous",
+              "id": "122",
+              "step": "step_1_2_2",
+              "steps": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Joe",
+          "id": "13",
+          "step": "step_1_3",
+          "steps": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "task_2",
+      "id": "2",
+      "steps": [
+        {
+          "name": "Bob",
+          "id": "21",
+          "step": "step_2_1",
+          "steps": [
+            {
+              "name": "Bob&Alice",
+              "id": "211",
+              "step": "step_2_1_1",
+              "steps": [
+
+              ]
+            },
+            {
+              "name": "Bob&Max",
+              "id": "212",
+              "step": "step_2_1_2",
+              "steps": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Joe",
+          "id": "22",
+          "step": "step_2_2",
+          "steps": [
+
+          ]
+        },
+        {
+          "name": "Joe",
+          "id": "23",
+          "step": "step_2_3",
+          "steps": [
+
+          ]
+        }
+      ]
+    }
+  ]
+}

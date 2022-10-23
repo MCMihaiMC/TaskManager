@@ -1,0 +1,24 @@
+﻿@model ViewModel
+
+@{
+    ViewData["Title"] = "Task Manager";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Task Manager</h1>
+</div>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <b>Tasks: </b>
+    <br />
+    @foreach (var task in Model.ListTasks)
+    {  
+        <tr>
+            <td></td>
+            <td><input type="submit" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) /></td>
+        </tr>
+
+        <br/><br/>
+    }
+}
