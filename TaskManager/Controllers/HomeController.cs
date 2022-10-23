@@ -35,8 +35,6 @@ namespace TaskManager.Controllers
             return View(viewModel);
         }
 
-
-
         [HttpGet]
         public IEnumerable<Job> GetTasks()
         {
@@ -45,13 +43,14 @@ namespace TaskManager.Controllers
             return tasksList;
         }
 
-        [HttpGet("{taskId}")]
+        [HttpGet("getsteps/{taskId}")]
         public IEnumerable<Step> GetSteps(int taskId)
         {
-            return _taskLoadHandler.GetSteps(taskId);
+            IEnumerable<Step> steps = _taskLoadHandler.GetSteps(taskId);
+            return steps;
         }
 
-        [HttpGet("step/{parentStepId}")]
+        [HttpGet("getchildrensteps/{parentStepId}")]
         public IEnumerable<Step> LoadStepChildren(int parentStepId)
         {
             return _taskLoadHandler.GetStepsByParentId(parentStepId);

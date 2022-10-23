@@ -13,12 +13,42 @@
     <b>Tasks: </b>
     <br />
     @foreach (var task in Model.ListTasks)
-    {  
-        <tr>
-            <td></td>
-            <td><input type="submit" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) /></td>
-        </tr>
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) onclick="loadChildren('@task.Id');" />
+                </td>
 
-        <br/><br/>
+            </tr>
+            <tr id="task_@task.Id">
+
+            </tr>
+        </table>
+
+        <br />
+        <br />
     }
 }
+
+<script type="text/javascript">
+
+    function loadChildren(e) {
+        console.log(e);
+
+        var url = "https://localhost:7143/getsteps/" + e;
+
+        $.get(url, function (data) {
+
+            for (var i = 0; i < data.length; i++)
+            {
+                $("#task_" + e).append("<td><input type='button' id=" + data[i].id +  "value=" + data[i].label + " /></td>")
+            }
+            
+
+        });
+
+        return false;
+    }
+</script>
