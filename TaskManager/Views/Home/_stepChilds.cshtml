@@ -6,9 +6,11 @@
         foreach (var step in Model)
         {
             <div>
-                <div><input type="button" 
-                            value="@step.Label" 
-                            id="@step.Id" /></div>
+                <div>
+                    <input type="button"
+                       value="@step.Label"
+                       id="@step.Id" />
+                </div>
                 <div id="@step.Label.Substring(0,8)" class="step"></div>
             </div>
         }

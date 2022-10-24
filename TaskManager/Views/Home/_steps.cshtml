@@ -1,21 +1,22 @@
 ﻿@using TaskManager.Business.BusinessEntities
-@model IEnumerable<Step> 
+@model IEnumerable<Step>
 
-    <div>
+<div>
     @{
         foreach (var d in Model)
         {
+            <div>
                 <div>
-                    <div><input type="button" 
-                                value="@d.Label" 
-                                id="step_@d.Id" 
-                                onclick="loadStepChildren('@d.Id');" />
-                                </div>
-                    <div id="childstep_@d.Id" class="step"></div>
+                    <input type="button"
+                       value="@d.Label"
+                       id="step_@d.Id"
+                       onclick="loadStepChildren(@d.Id);" />
                 </div>
+                <div id="childStep_@d.Id" class="step"></div>
+            </div>
         }
     }
-    </div>
+</div>
 
 <script type="text/javascript">
 

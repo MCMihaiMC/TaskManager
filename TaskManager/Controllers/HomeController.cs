@@ -53,7 +53,8 @@ namespace TaskManager.Controllers
         public PartialViewResult GetChildrenSteps(int parentStepId)
         {
             var data = _taskLoadHandler.GetStepsByParentId(parentStepId);
-            return PartialView("_stepChilds", data);
+            //return PartialView("_stepChilds", data);
+            return PartialView("_steps", data);
         }
 
 

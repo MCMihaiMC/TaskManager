@@ -15,10 +15,11 @@
     @foreach (var task in Model.ListTasks)
     {
         <div>
-            <div><input type="button" 
-                       value="@task.Name" 
-                       id="@task.Id"
-                       onclick="loadChildren('@task.Id');" />
+            <div>
+                <input type="button"
+               value="@task.Name"
+               id="@task.Id"
+               onclick="loadChildren('@task.Id');" />
             </div>
             <div id="task_@task.Id" class="step">
             </div>
@@ -44,7 +45,6 @@
 
         return false;
     }
-
     function loadStepChildren(id) {
 
         var url = "https://localhost:7143/getchildrensteps/" + id;
@@ -55,7 +55,6 @@
 
         return false;
     }
-
 
 </script>
 
