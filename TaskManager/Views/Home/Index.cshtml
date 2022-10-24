@@ -44,6 +44,19 @@
 
         return false;
     }
+
+    function loadStepChildren(id) {
+
+        var url = "https://localhost:7143/getchildrensteps/" + id;
+
+        $.get(url, function (data) {
+            $("#childStep_" + id).html(data)
+        });
+
+        return false;
+    }
+
+
 </script>
 
 <style>

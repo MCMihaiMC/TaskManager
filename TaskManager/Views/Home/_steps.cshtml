@@ -9,9 +9,9 @@
                     <div><input type="button" 
                                 value="@d.Label" 
                                 id="step_@d.Id" 
-                                onclick="loadStepChildren('@d.Id ', '@d.Label');" />
+                                onclick="loadStepChildren('@d.Id');" />
                                 </div>
-                    <div id="@d.Label.Substring(0,8)" class="step"></div>
+                    <div id="childstep_@d.Id" class="step"></div>
                 </div>
         }
     }
@@ -19,18 +19,6 @@
 
 <script type="text/javascript">
 
-    function loadStepChildren(id, label) {
-
-        var url = "https://localhost:7143/getchildrensteps/" + id;
-
-        $.get(url, function (data) {
-            let result = label.substring(0,10);
-            $(result).html(data)
-
-        });
-
-        return false;
-    }
 </script>
 
 <style>
