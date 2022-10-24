@@ -50,9 +50,10 @@ namespace TaskManager.Controllers
         }
 
         [HttpGet("getchildrensteps/{parentStepId}")]
-        public IEnumerable<Step> LoadStepChildren(int parentStepId)
+        public PartialViewResult GetChildrenSteps(int parentStepId)
         {
-            return _taskLoadHandler.GetStepsByParentId(parentStepId);
+            var data = _taskLoadHandler.GetStepsByParentId(parentStepId);
+            return PartialView("_stepChilds", data);
         }
 
 

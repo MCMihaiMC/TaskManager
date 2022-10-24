@@ -3,11 +3,40 @@
 
     <div>
     @{
-
         foreach (var d in Model)
         {
-                    <div><input type="button" value="@d.Label" id="step_@d.Id"  /></div>
-
+                <div>
+                    <div><input type="button" 
+                                value="@d.Label" 
+                                id="step_@d.Id" 
+                                onclick="loadStepChildren('@d.Id ', '@d.Label');" />
+                                </div>
+                    <div id="@d.Label.Substring(0,8)" class="step"></div>
+                </div>
         }
     }
     </div>
+
+<script type="text/javascript">
+
+    function loadStepChildren(id, label) {
+
+        var url = "https://localhost:7143/getchildrensteps/" + id;
+
+        $.get(url, function (data) {
+            let result = label.substring(0,10);
+            $(result).html(data)
+
+        });
+
+        return false;
+    }
+</script>
+
+<style>
+
+    .step {
+        left: 200px;
+        position: relative;
+    }
+</style>

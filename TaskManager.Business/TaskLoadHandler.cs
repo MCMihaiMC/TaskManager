@@ -29,16 +29,17 @@ namespace TaskManager.Business
             return _taskRepository.GetSteps(taskId).Select(s => new Step()
             {
                 Id = s.Id,
-                Label = $"{s.Name}-{s.Owner}",
+                Label = $"{s.Name}-{s.Owner ?? owner}",
             });
         }
 
         public IEnumerable<Step> GetStepsByParentId(int parentStepId)
         {
+            var owner = "anonymus";
             return _taskRepository.GetStepsByParentId(parentStepId).Select(s => new Step()
             {
                 Id = s.Id,
-                Label = $"{s.Name}-{s.Owner}",
+                Label = $"{s.Name}-{s.Owner ?? owner}",
             });
         }
 

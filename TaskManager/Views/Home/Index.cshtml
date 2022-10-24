@@ -15,8 +15,10 @@
     @foreach (var task in Model.ListTasks)
     {
         <div>
-            <div>
-                <input type="button" value=@Html.DisplayFor(m=>task.Name) id=@Html.DisplayFor(m=>task.Id) onclick="loadChildren('@task.Id');" />
+            <div><input type="button" 
+                       value="@task.Name" 
+                       id="@task.Id"
+                       onclick="loadChildren('@task.Id');" />
             </div>
             <div id="task_@task.Id" class="step">
             </div>
@@ -29,14 +31,14 @@
 
 <script type="text/javascript">
 
-    function loadChildren(e) {
-        console.log(e);
+    function loadChildren(taskId) {
+        console.log(taskId);
 
-        var url = "https://localhost:7143/getsteps/" + e;
+        var url = "https://localhost:7143/getsteps/" + taskId;
 
         $.get(url, function (data) {
 
-            $("#task_" + e).html(data)
+            $("#task_" + taskId).html(data)
 
         });
 
